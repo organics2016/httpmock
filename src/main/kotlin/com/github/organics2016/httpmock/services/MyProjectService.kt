@@ -1,7 +1,7 @@
-package org.jetbrains.plugins.template.services
+package com.github.organics2016.httpmock.services
 
 import com.intellij.openapi.project.Project
-import org.jetbrains.plugins.template.MyBundle
+import com.github.organics2016.httpmock.MyBundle
 
 class MyProjectService(project: Project) {
 
