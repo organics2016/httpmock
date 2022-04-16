@@ -1,7 +1,7 @@
-package com.github.organics2016.httpmock.services
+package ink.organics.httpmock.services
 
 import com.intellij.openapi.project.Project
-import com.github.organics2016.httpmock.MyBundle
+import ink.organics.httpmock.MyBundle
 
 class MyProjectService(project: Project) {
 

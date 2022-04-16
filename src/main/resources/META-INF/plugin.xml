@@ -1,18 +1,17 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.organics2016.httpmock</id>
-    <name>httpmock</name>
-    <vendor>organics2016</vendor>
-
+    <id>ink.organics.httpmock</id>
+    <name>HTTP Mock</name>
+    <vendor email="374564811@qq.com" url="https://github.com/organics2016">organics2016</vendor>
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.organics2016.httpmock.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.organics2016.httpmock.services.MyProjectService"/>
+        <applicationService serviceImplementation="ink.organics.httpmock.services.MyApplicationService"/>
+        <projectService serviceImplementation="ink.organics.httpmock.services.MyProjectService"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.organics2016.httpmock.listeners.MyProjectManagerListener"
+        <listener class="ink.organics.httpmock.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
 </idea-plugin>

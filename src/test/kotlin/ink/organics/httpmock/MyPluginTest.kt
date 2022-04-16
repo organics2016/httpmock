@@ -1,4 +1,4 @@
-package com.github.organics2016.httpmock
+package ink.organics.httpmock
 
 import com.intellij.ide.highlighter.XmlFileType
 import com.intellij.psi.xml.XmlFile

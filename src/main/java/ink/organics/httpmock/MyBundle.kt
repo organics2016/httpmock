@@ -1,4 +1,4 @@
-package com.github.organics2016.httpmock
+package ink.organics.httpmock
 
 import com.intellij.DynamicBundle
 import org.jetbrains.annotations.NonNls

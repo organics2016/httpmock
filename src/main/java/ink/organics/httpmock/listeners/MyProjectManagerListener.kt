@@ -1,9 +1,9 @@
-package com.github.organics2016.httpmock.listeners
+package ink.organics.httpmock.listeners
 
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManagerListener
-import com.github.organics2016.httpmock.services.MyProjectService
+import ink.organics.httpmock.services.MyProjectService
 
 internal class MyProjectManagerListener : ProjectManagerListener {
 
