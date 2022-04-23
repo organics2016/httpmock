@@ -14,4 +14,15 @@
         <listener class="ink.organics.httpmock.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
+
+    <actions>
+        <group id="ink.organics.httpmock.actions.CreateFileGroup">
+            <separator/>
+            <action id="ink.organics.httpmock.actions.CreateFileAction"
+                    class="ink.organics.httpmock.actions.CreateFileAction">
+                <add-to-group group-id="NewGroup" anchor="last"/>
+            </action>
+            <separator/>
+        </group>
+    </actions>
 </idea-plugin>

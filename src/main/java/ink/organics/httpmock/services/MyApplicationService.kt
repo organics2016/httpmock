@@ -1,11 +1,11 @@
 package ink.organics.httpmock.services
 
-import ink.organics.httpmock.MyBundle
+import ink.organics.httpmock.HTTPMockBundle
 
 
 class MyApplicationService {
 
     init {
-        println(MyBundle.message("applicationService"))
+        println(HTTPMockBundle.message("applicationService"))
     }
 }

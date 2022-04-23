@@ -5,9 +5,9 @@ import org.jetbrains.annotations.NonNls
 import org.jetbrains.annotations.PropertyKey
 
 @NonNls
-private const val BUNDLE = "messages.MyBundle"
+private const val BUNDLE = "messages.HTTPMockBundle"
 
-object MyBundle : DynamicBundle(BUNDLE) {
+object HTTPMockBundle : DynamicBundle(BUNDLE) {
 
     @Suppress("SpreadOperator")
     @JvmStatic
