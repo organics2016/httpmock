@@ -1,5 +1,9 @@
 .gradle
-gradle
 .idea
 .qodana
-build
+/build
+/gradle
+/java
+gradlew
+gradlew.bat
+
