@@ -7,6 +7,7 @@ import com.intellij.openapi.util.NlsContexts;
 import com.intellij.psi.PsiDirectory;
 import com.intellij.xml.XmlBundle;
 import ink.organics.httpmock.HTTPMockBundle;
+import ink.organics.httpmock.HTTPMockFileType;
 import ink.organics.httpmock.icons.HTTPMockIcons;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
@@ -24,8 +25,11 @@ public class CreateFileAction extends CreateFileFromTemplateAction {
 
     @Override
     protected void buildDialog(@NotNull Project project, @NotNull PsiDirectory directory, CreateFileFromTemplateDialog.@NotNull Builder builder) {
+        HTTPMockFileType fileType = HTTPMockFileType.INSTANCE;
         builder.setTitle(HTTPMockBundle.message("httpmock.action.new.file.dialog.title"))
-                .addKind("HTTP request", HTTPMockIcons.HTTP_REQUESTS_FILETYPE, "HTTP Request0.http");
+                .addKind(fileType.getName(),
+                        HTTPMockIcons.HTTP_REQUESTS_FILETYPE,
+                        fileType.getName() + "." + fileType.getDefaultExtension());
     }
 
     @Override
