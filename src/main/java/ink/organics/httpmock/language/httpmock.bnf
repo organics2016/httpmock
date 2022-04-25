@@ -1,0 +1,21 @@
+{
+  parserClass="ink.organics.httpmock.language.parser.HTTPMockParser"
+
+  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix="HTTPMock"
+  psiImplClassSuffix="Impl"
+  psiPackage="ink.organics.httpmock.language.psi"
+  psiImplPackage="ink.organics.httpmock.language.psi.impl"
+
+  elementTypeHolderClass="ink.organics.httpmock.language.psi.HTTPMockTypes"
+
+  elementTypeClass="ink.organics.httpmock.language.psi.HTTPMockElementType"
+  tokenTypeClass="ink.organics.httpmock.language.psi.HTTPMockTokenType"
+}
+
+simpleFile ::= item_*
+
+private item_ ::= (property|COMMENT|CRLF)
+
+property ::= (KEY? SEPARATOR VALUE?) | KEY

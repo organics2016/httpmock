@@ -14,6 +14,8 @@ plugins {
     id("org.jetbrains.changelog") version "1.3.1"
     // Gradle Qodana Plugin
     id("org.jetbrains.qodana") version "0.1.13"
+    // grammarkit Plugin
+    id("org.jetbrains.grammarkit") version "2021.2.2"
 }
 
 group = properties("pluginGroup")
@@ -63,6 +65,23 @@ tasks {
 
     wrapper {
         gradleVersion = properties("gradleVersion")
+    }
+
+    generateParser {
+        // source bnf file
+        source.set("src/main/java/ink/organics/httpmock/language/httpmock.bnf")
+
+        // optional, task-specific root for the generated files. Default: none
+        targetRoot.set("gen")
+
+        // path to a parser file, relative to the targetRoot
+        pathToParser.set("/ink/organics/httpmock/language/parser/HTTPMockParser.java")
+
+        // path to a directory with generated psi files, relative to the targetRoot
+        pathToPsiRoot.set("/ink/organics/httpmock/language/psi")
+
+        // if set, the plugin will remove a parser output file and psi output directory before generating new ones. Default: false
+        purgeOldFiles.set(true)
     }
 
     patchPluginXml {

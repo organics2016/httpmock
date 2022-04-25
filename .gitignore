@@ -4,6 +4,7 @@
 /build
 /gradle
 /java
+/gen
 gradlew
 gradlew.bat
 
