@@ -18,6 +18,10 @@
         <lang.parserDefinition
                 language="HTTPMock"
                 implementationClass="ink.organics.httpmock.language.parser.HTTPMockParserDefinition"/>
+
+        <lang.syntaxHighlighterFactory
+                language="HTTPMock"
+                implementationClass="ink.organics.httpmock.language.highlighting.HTTPMockSyntaxHighlighterFactory"/>
     </extensions>
 
     <applicationListeners>
