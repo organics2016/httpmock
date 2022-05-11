@@ -12,7 +12,7 @@ import ink.organics.httpmock.language.psi.*;
 
 public class HTTPHeaderImpl extends HTTPMockCompositeElementImpl implements HTTPHeader {
 
-  public HTTPHeaderImpl(ASTNode node) {
+  public HTTPHeaderImpl(@NotNull ASTNode node) {
     super(node);
   }
 
@@ -24,18 +24,6 @@ public class HTTPHeaderImpl extends HTTPMockCompositeElementImpl implements HTTP
   public void accept(@NotNull PsiElementVisitor visitor) {
     if (visitor instanceof HTTPVisitor) accept((HTTPVisitor)visitor);
     else super.accept(visitor);
-  }
-
-  @Override
-  @NotNull
-  public PsiElement getHeaderName() {
-    return findNotNullChildByType(HEADER_NAME);
-  }
-
-  @Override
-  @Nullable
-  public PsiElement getHeaderValue() {
-    return findChildByType(HEADER_VALUE);
   }
 
 }

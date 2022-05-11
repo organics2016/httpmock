@@ -10,14 +10,14 @@ import com.intellij.psi.util.PsiTreeUtil;
 import static ink.organics.httpmock.language.psi.HTTPMockTypes.*;
 import ink.organics.httpmock.language.psi.*;
 
-public class HTTPContextImpl extends HTTPMockCompositeElementImpl implements HTTPContext {
+public class HTTPMethodImpl extends HTTPMockCompositeElementImpl implements HTTPMethod {
 
-  public HTTPContextImpl(@NotNull ASTNode node) {
+  public HTTPMethodImpl(@NotNull ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull HTTPVisitor visitor) {
-    visitor.visitContext(this);
+    visitor.visitMethod(this);
   }
 
   @Override
@@ -28,8 +28,8 @@ public class HTTPContextImpl extends HTTPMockCompositeElementImpl implements HTT
 
   @Override
   @NotNull
-  public HTTPMethod getMethod() {
-    return findNotNullChildByClass(HTTPMethod.class);
+  public PsiElement getRequestMethod() {
+    return findNotNullChildByType(REQUEST_METHOD);
   }
 
 }

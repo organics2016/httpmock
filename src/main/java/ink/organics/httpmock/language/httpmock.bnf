@@ -20,31 +20,52 @@
 
     AND        =  '&'
     COLON      =  ':'
-//    LBRACK      =  '['
-//    RBRACK      =  ']'
-//    LPAREN      =  '('
-//    RPAREN      =  ')'
-//    LT          =  '<'
-//    GT          =  '>'
-//    EQ          =  '='
-//    COLON       =  ':'
+    DYNAMIC_SIGN = '$'
+    EQUALS   =  '='
+    HASHTAG   =  '#'
+    HTTP = 'http'
+    HTTPS = 'https'
+    LBRACES   =  '{{'
+    RBRACES   =  '}}'
+    QUESTION   =  '?'
+    SCHEME_SEPARATOR = '://'
+    SEMICOLON = ';'
+    SEPARATOR = '/'
+//    IElementType FIELD_NAME = new HttpRequestTokenType("FIELD_NAME");
+//    IElementType FIELD_VALUE = new HttpRequestTokenType("FIELD_VALUE");
+//    IElementType FORCE_OUTPUT_FILE_SIGN = new HttpRequestTokenType("FORCE_OUTPUT_FILE_SIGN");
+//    IElementType HANDLER_FILE_PATH = new HttpRequestTokenType("HANDLER_FILE_PATH");
+//    IElementType HOST_VALUE = new HttpRequestTokenType("HOST_VALUE");
+//    IElementType IDENTIFIER = new HttpRequestTokenType("IDENTIFIER");
+//    IElementType INPUT_FILE_PATH = new HttpRequestTokenType("INPUT_FILE_PATH");
+//    IElementType INPUT_SIGN = new HttpRequestTokenType("INPUT_SIGN");
+//    IElementType INTERMEDIATE_WHITESPACE = new HttpRequestTokenType("INTERMEDIATE_WHITESPACE");
+//    IElementType MESSAGE_BOUNDARY = new HttpRequestTokenType("MESSAGE_BOUNDARY");
+//    IElementType MESSAGE_TEXT = new HttpRequestTokenType("MESSAGE_TEXT");
+//    IElementType OUTPUT_FILE_PATH_PART = new HttpRequestTokenType("OUTPUT_FILE_PATH_PART");
+//    IElementType OUTPUT_FILE_SIGN = new HttpRequestTokenType("OUTPUT_FILE_SIGN");
+//    IElementType OUTPUT_SIGN = new HttpRequestTokenType("OUTPUT_SIGN");
+//    IElementType PORT_SEGMENT = new HttpRequestTokenType("PORT_SEGMENT");
+//    IElementType PROTOCOL = new HttpRequestTokenType("HTTP");
+//    IElementType QUERY_NAME = new HttpRequestTokenType("QUERY_NAME");
+//    IElementType QUERY_VALUE = new HttpRequestTokenType("QUERY_VALUE");
+//    IElementType REQUEST_SEPARATOR = new HttpRequestTokenType("REQUEST_SEPARATOR");
+//    IElementType SEGMENT = new HttpRequestTokenType("SEGMENT");
 
     TODO='TODO'
-    CRLF='regexp:\n'
+    PROTOCOL    =  'HTTP'
 
-    METHOD='regexp:(GET|POST|PUT|DELETE|HEAD|OPTIONS|TRACE|CONNECT)'
-    URI='regexp:(\w+:(\/?\/?)[^\s]+)'
-    HTTP_VERSION='regexp:(HTTP\/1|HTTP\/2|HTTP\/1\.1|HTTP\/2\.0)'
+    REQUEST_METHOD='regexp:(GET|POST|PUT|DELETE|HEAD|OPTIONS|TRACE|CONNECT)'
+//    URI='regexp:(\w+:(\/?\/?)[^\s]+)'
+//    HTTP_VERSION='regexp:(HTTP\/1|HTTP\/2|HTTP\/1\.1|HTTP\/2\.0)'
 
 
-    space='regexp:\s+'
-    comment='regexp://.*|#+.*'
-    string="regexp:('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")"
-    HEADER_NAME='regexp:([\w\-]+)'
-    HEADER_VALUE='regexp:([.*\/]+)'
+    COMMENT='regexp://.*|#+.*'
+    STRING="regexp:('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")"
+//    HEADER_NAME='regexp:([\w\-]+)'
+//    HEADER_VALUE='regexp:([.*\/]+)'
 
   ]
-
 }
 
 //Method Request-URI HTTP-Version
@@ -55,6 +76,11 @@
 root ::= root_item*
 private root_item ::= context (CRLF header)* (CRLF request_body)?
 
-context ::= METHOD URI HTTP_VERSION?
+
+method ::= REQUEST_METHOD
+scheme ::= (HTTP | HTTPS) SCHEME_SEPARATOR scheme_body
+scheme_body ::= host port?
+host ::= IDENTIFIER
+context ::= method URI HTTP_VERSION?
 header ::= HEADER_NAME ':' HEADER_VALUE {pin=2}
 request_body ::= 'data'

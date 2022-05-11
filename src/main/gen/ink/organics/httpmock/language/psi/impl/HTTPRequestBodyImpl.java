@@ -12,7 +12,7 @@ import ink.organics.httpmock.language.psi.*;
 
 public class HTTPRequestBodyImpl extends HTTPMockCompositeElementImpl implements HTTPRequestBody {
 
-  public HTTPRequestBodyImpl(ASTNode node) {
+  public HTTPRequestBodyImpl(@NotNull ASTNode node) {
     super(node);
   }
 

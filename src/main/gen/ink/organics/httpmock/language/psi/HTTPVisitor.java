@@ -14,7 +14,23 @@ public class HTTPVisitor extends PsiElementVisitor {
     visitMockCompositeElement(o);
   }
 
+  public void visitHost(@NotNull HTTPHost o) {
+    visitMockCompositeElement(o);
+  }
+
+  public void visitMethod(@NotNull HTTPMethod o) {
+    visitMockCompositeElement(o);
+  }
+
   public void visitRequestBody(@NotNull HTTPRequestBody o) {
+    visitMockCompositeElement(o);
+  }
+
+  public void visitScheme(@NotNull HTTPScheme o) {
+    visitMockCompositeElement(o);
+  }
+
+  public void visitSchemeBody(@NotNull HTTPSchemeBody o) {
     visitMockCompositeElement(o);
   }
 

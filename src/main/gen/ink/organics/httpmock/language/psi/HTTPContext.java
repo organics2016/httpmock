@@ -7,13 +7,7 @@ import com.intellij.psi.PsiElement;
 
 public interface HTTPContext extends HTTPMockCompositeElement {
 
-  @Nullable
-  PsiElement getHttpVersion();
-
   @NotNull
-  PsiElement getMethod();
-
-  @NotNull
-  PsiElement getUri();
+  HTTPMethod getMethod();
 
 }

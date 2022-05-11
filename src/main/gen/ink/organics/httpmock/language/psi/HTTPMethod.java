@@ -5,6 +5,9 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface HTTPHeader extends HTTPMockCompositeElement {
+public interface HTTPMethod extends HTTPMockCompositeElement {
+
+  @NotNull
+  PsiElement getRequestMethod();
 
 }
