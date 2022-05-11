@@ -50,6 +50,8 @@ qodana {
     showReport.set(System.getenv("QODANA_SHOW_REPORT")?.toBoolean() ?: false)
 }
 
+sourceSets["main"].java.srcDirs("src/main/gen")
+
 tasks {
     // Set the JVM compatibility versions
     properties("javaVersion").let {
@@ -72,7 +74,7 @@ tasks {
         source.set("src/main/java/ink/organics/httpmock/language/httpmock.bnf")
 
         // optional, task-specific root for the generated files. Default: none
-        targetRoot.set("gen")
+        targetRoot.set("src/main/gen")
 
         // path to a parser file, relative to the targetRoot
         pathToParser.set("/ink/organics/httpmock/language/parser/HTTPMockParser.java")

@@ -9,7 +9,7 @@
         <applicationService serviceImplementation="ink.organics.httpmock.services.MyApplicationService"/>
         <projectService serviceImplementation="ink.organics.httpmock.services.MyProjectService"/>
 
-        <fileType implementationClass="ink.organics.httpmock.HTTPMockFileType"
+        <fileType implementationClass="ink.organics.httpmock.language.HTTPMockFileType"
                   name="HTTP Mock"
                   fieldName="INSTANCE"
                   language="HTTPMock"

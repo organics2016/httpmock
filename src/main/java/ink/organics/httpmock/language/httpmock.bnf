@@ -1,9 +1,12 @@
 {
+  generate=[java="11"]
+
   parserClass="ink.organics.httpmock.language.parser.HTTPMockParser"
 
-  extends="com.intellij.extapi.psi.ASTWrapperPsiElement"
+  implements="ink.organics.httpmock.language.psi.HTTPMockCompositeElement"
+  extends="ink.organics.httpmock.language.psi.impl.HTTPMockCompositeElementImpl"
 
-  psiClassPrefix="HTTPMock"
+  psiClassPrefix="HTTP"
   psiImplClassSuffix="Impl"
   psiPackage="ink.organics.httpmock.language.psi"
   psiImplPackage="ink.organics.httpmock.language.psi.impl"
@@ -12,10 +15,45 @@
 
   elementTypeClass="ink.organics.httpmock.language.psi.HTTPMockElementType"
   tokenTypeClass="ink.organics.httpmock.language.psi.HTTPMockTokenType"
+
+  tokens = [
+
+    AND        =  '&'
+    COLON      =  ':'
+//    LBRACK      =  '['
+//    RBRACK      =  ']'
+//    LPAREN      =  '('
+//    RPAREN      =  ')'
+//    LT          =  '<'
+//    GT          =  '>'
+//    EQ          =  '='
+//    COLON       =  ':'
+
+    CRLF='regexp:\n'
+
+    METHOD='regexp:(GET|POST|PUT|DELETE|HEAD|OPTIONS|TRACE|CONNECT)'
+    URI='regexp:(\w+:(\/?\/?)[^\s]+)'
+    HTTP_VERSION='regexp:(HTTP\/1|HTTP\/2|HTTP\/1\.1|HTTP\/2\.0)'
+
+
+    space='regexp:\s+'
+    comment='regexp://.*|#+.*'
+    string="regexp:('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")"
+    HEADER_NAME='regexp:([\w\-]+)'
+    HEADER_VALUE='regexp:([.*\/]+)'
+
+  ]
+
 }
 
-simpleFile ::= item_*
+//Method Request-URI HTTP-Version
+//Header-field: Header-value
+//
+//Request-Body
 
-private item_ ::= (property|COMMENT|CRLF)
+root ::= root_item*
+private root_item ::= context (CRLF header)* (CRLF request_body)?
 
-property ::= (KEY? SEPARATOR VALUE?) | KEY
+context ::= METHOD URI HTTP_VERSION?
+header ::= HEADER_NAME ':' HEADER_VALUE {pin=2}
+request_body ::= 'data'

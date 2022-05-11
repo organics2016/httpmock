@@ -1,11 +1,9 @@
 package ink.organics.httpmock.language.psi;
 
-import com.intellij.lang.Language;
 import com.intellij.psi.tree.IElementType;
-import ink.organics.httpmock.HTTPMockLanguage;
+import ink.organics.httpmock.language.HTTPMockLanguage;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 public class HTTPMockElementType extends IElementType {
 

@@ -1,6 +1,7 @@
-package ink.organics.httpmock;
+package ink.organics.httpmock.language;
 
 import com.intellij.lang.Language;
+import ink.organics.httpmock.HTTPMockBundle;
 
 public class HTTPMockLanguage extends Language {
 
