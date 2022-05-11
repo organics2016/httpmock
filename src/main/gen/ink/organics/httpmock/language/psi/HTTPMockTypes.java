@@ -21,6 +21,7 @@ public interface HTTPMockTypes {
   IElementType HTTP_VERSION = new HTTPMockTokenType("HTTP_VERSION");
   IElementType METHOD = new HTTPMockTokenType("METHOD");
   IElementType STRING = new HTTPMockTokenType("string");
+  IElementType TODO = new HTTPMockTokenType("TODO");
   IElementType URI = new HTTPMockTokenType("URI");
 
   class Factory {

@@ -29,6 +29,7 @@
 //    EQ          =  '='
 //    COLON       =  ':'
 
+    TODO='TODO'
     CRLF='regexp:\n'
 
     METHOD='regexp:(GET|POST|PUT|DELETE|HEAD|OPTIONS|TRACE|CONNECT)'

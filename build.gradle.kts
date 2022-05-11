@@ -69,6 +69,23 @@ tasks {
         gradleVersion = properties("gradleVersion")
     }
 
+    generateLexer {
+        // source flex file
+        source.set("src/main/java/ink/organics/httpmock/language/httpmock.flex")
+
+        // target directory for lexer
+        targetDir.set("src/main/gen/ink/organics/httpmock/language/lexer/")
+
+        // target classname, target file will be targetDir/targetClass.java
+        targetClass.set("HTTPMockLexer")
+
+        // optional, path to the task-specific skeleton file. Default: none
+//        skeleton.set("/some/specific/skeleton")
+
+        // if set, plugin will remove a lexer output file before generating new one. Default: false
+        purgeOldFiles.set(true)
+    }
+
     generateParser {
         // source bnf file
         source.set("src/main/java/ink/organics/httpmock/language/httpmock.bnf")

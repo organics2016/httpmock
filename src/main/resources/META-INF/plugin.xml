@@ -14,6 +14,10 @@
                   fieldName="INSTANCE"
                   language="HTTPMock"
                   extensions="http"/>
+
+        <lang.parserDefinition
+                language="HTTPMock"
+                implementationClass="ink.organics.httpmock.language.parser.HTTPMockParserDefinition"/>
     </extensions>
 
     <applicationListeners>
